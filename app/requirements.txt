@@ -1,0 +1,5 @@
+fritzconnection
+apscheduler
+flask
+waitress
+python-dotenv
