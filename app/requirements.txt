@@ -1,5 +1,9 @@
 fritzconnection
 apscheduler
+asyncio
 flask
 waitress
 python-dotenv
+renault-api
+psycopg2-binary
+pypika
