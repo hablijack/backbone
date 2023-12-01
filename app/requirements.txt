@@ -6,4 +6,3 @@ waitress
 python-dotenv
 renault-api
 psycopg2-binary
-pypika
