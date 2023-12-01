@@ -7,7 +7,7 @@ class Sql():
         return insert_stmt.format(dt.now(), temp, status, power)
 
     def generate_zoe_insert_stmt(self, battery_level, total_mileage):
-        insert_stmt = 'INSERT INTO "zoe" ("timestamp","battery_level","total_mileage") VALUES ("{}", {}, {})'
+        insert_stmt = 'INSERT INTO "zoe" ("timestamp","battery_level","total_mileage") VALUES (\'{}\' {}, {})'
         return insert_stmt.format(dt.now(), battery_level, total_mileage)
 
     def generate_solarpanel_index_stmt(self):
