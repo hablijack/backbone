@@ -1,5 +1,7 @@
 FROM python:3-slim
 
+RUN apt-get update && apt-get -y install gcc
+
 ADD app /app
 
 RUN mkdir /app/cache
