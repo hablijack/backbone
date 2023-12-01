@@ -24,6 +24,8 @@ def init_database():
     sql = Sql()
     database.execute(sql.generate_solarpanel_table_stmt())
     database.execute(sql.generate_solarpanel_index_stmt())
+    database.execute(sql.generate_zoe_table_stmt())
+    database.execute(sql.generate_zoe_index_stmt())
 
 if __name__ == "__main__":
     logging.basicConfig(
