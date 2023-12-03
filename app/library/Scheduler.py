@@ -19,4 +19,4 @@ class Scheduler():
     def register_jobs(self):
         self.scheduler.add_job(Fritzbox.fetch, 'interval', [self.database], minutes=1)
         self.scheduler.add_job(Zoe.fetch, 'interval', [self.database], minutes=10)
-        self.scheduler.add_job(Database.cleanup, [self.database], trigger='cron', hour='10', minute='30')
+        self.scheduler.add_job(Database.cleanup, 'cron', [self.database], hour='10', minute='30')
