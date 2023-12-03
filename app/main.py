@@ -7,7 +7,7 @@ from library.Scheduler import Scheduler
 from library.Configuration import Configuration
 from library.Database import Database
 from waitress import serve
-from flask import Flask
+from flask import Flask, render_template
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,6 +19,14 @@ from library.Sql import Sql
 @app.route('/health')
 def health():
     return {'status': 'UP'}
+
+@app.route('/')
+def home():
+    return render_template(
+        'home.html',
+        title="Jinja Demo Site",
+        description="Smarter page templates with Flask & Jinja."
+    )
 
 def init_database():
     sql = Sql()

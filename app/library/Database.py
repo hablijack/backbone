@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import psycopg2
+from library.Sql import Sql
+import logging
 from library.Configuration import Configuration
 
 class Database():
@@ -39,3 +41,15 @@ class Database():
             self.conn.rollback()
         finally:
             cur.close()
+
+    @staticmethod
+    async def cleanup(database):
+        sql = Sql()
+        logger = logging.getLogger("Database")
+        try:
+            cleanup_statement = sql.generate_solarpanel_cleanup_stmt()
+            database.execute(cleanup_statement)
+            cleanup_statement = sql.generate_zoe_cleanup_stmt()
+            database.execute(cleanup_statement)
+        except Exception as error:
+            logger.error(f"Error: '{error}'")

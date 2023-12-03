@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        new Chart(document.getElementById("chartjs-pie"), {
+            type: "pie",
+            data: {
+                labels: ["Netzbezug", "Balkonsolar-Produktion"],
+                datasets: [{
+                    data: [3600, 50],
+                    backgroundColor: [
+                        "#cc6600",
+                        "#339933"
+                    ],
+                    borderColor: "transparent"
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    display: true
+                }
+            }
+        });
+    });
+</script>
+
+
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-12 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Stromverbrauch/Produktion Echtzeit</h5>
+                    <h6 class="card-subtitle text-muted">
+                        Zeigt den, jetzt im Augenblick, verbrauchten Strom in Relation zum mit Balkon-PV Generiertem.
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart chart-sm">
+                        <canvas id="chartjs-pie"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
