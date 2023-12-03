@@ -4,7 +4,7 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from jobs.Fritzbox import Fritzbox
 from jobs.Zoe import Zoe
-from Database import Database
+from library.Database import Database
 
 class Scheduler():
 
