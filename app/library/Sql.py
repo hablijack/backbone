@@ -25,7 +25,7 @@ class Sql():
 
     def generate_zoe_table_stmt(self):
         return 'CREATE TABLE IF NOT EXISTS "zoe" ("id" BIGSERIAL NOT NULL,"timestamp" TIMESTAMP WITH TIME ZONE NOT NULL,"battery_level" FLOAT NOT NULL,"total_mileage" FLOAT NOT NULL,PRIMARY KEY ("id"));'
-    
+
     def generate_poweropti_table_stmt(self):
         return 'CREATE TABLE IF NOT EXISTS "poweropti" ("id" BIGSERIAL NOT NULL,"timestamp" TIMESTAMP WITH TIME ZONE NOT NULL,"watt" FLOAT NOT NULL,PRIMARY KEY ("id"));'
 
@@ -40,9 +40,9 @@ class Sql():
 
     def generate_solarpanel_last_entry_query(self):
         return 'SELECT temperature, power FROM solarpanels ORDER BY "timestamp" DESC LIMIT 1;'
-    
+
     def generate_poweropti_last_entry_query(self):
         return 'SELECT watt FROM poweropti ORDER BY "timestamp" DESC LIMIT 1;'
-    
+
     def generate_zoe_last_entry_query(self):
         return 'SELECT battery_level, total_mileage FROM zoe ORDER BY "timestamp" DESC LIMIT 1;'

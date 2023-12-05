@@ -16,7 +16,6 @@ app = Flask(__name__)
 sql = Sql()
 database = Database()
 scheduler = Scheduler(database)
-Poweropti.fetch(database)
 
 @app.route('/health')
 def health():
