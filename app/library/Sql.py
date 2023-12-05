@@ -29,4 +29,4 @@ class Sql():
         return 'DELETE FROM zoe WHERE timestamp < now() - interval \'1 days\';'
 
     def generate_solarpanel_last_entry_query(self):
-        return 'SELECT * FROM solarpanels ORDER BY "timestamp" DESC LIMIT 1;'
+        return 'SELECT temperature, power FROM solarpanels ORDER BY "timestamp" DESC LIMIT 1;'

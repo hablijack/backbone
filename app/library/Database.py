@@ -35,12 +35,14 @@ class Database():
             cur = self.conn.cursor()
             cur.execute(select_statement)
             records = cur.fetchall()
-            return records
         except Exception as error:
             print(f"Error: '{error}'")
             self.conn.rollback()
+            records = None
         finally:
             cur.close()
+            return records
+            
 
     @staticmethod
     async def cleanup(database):

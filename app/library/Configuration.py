@@ -10,6 +10,9 @@ Read configuration from environment variables
 
 class Configuration:
 
+    def scheduler_active(self):
+        return os.getenv('SCHEDULER_ACTIVE')
+
     def postgres_password(self):
         return os.getenv('POSTGRES_PASSWORD')
 
