@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         new Chart(document.getElementById("chartjs-pie"), {
             type: "pie",
             data: {
-                labels: ["Netzbezug", "Balkonsolar-Produktion"],
+                labels: ["Netzbezug (W)", "Solar-Produktion (W)"],
                 datasets: [{
                     data: [data.house_consumption, data.solar_production],
                     backgroundColor: [
@@ -40,6 +40,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }).then(function (data) {
         document.getElementById("temperature-outside").textContent = data.temperature_outside;
+    }).catch(function (err) {
+        console.warn('Something went wrong.', err);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('/api/zoe/battery/current.json').then(function (response) {
+        if (response.ok) {
+            return response.json();
+        } else {
+            return Promise.reject(response);
+        }
+    }).then(function (data) {
+        document.getElementById("zoe-battery-state").textContent = data.battery_percent;
+        document.getElementById("zoe-mileage").textContent = data.total_mileage;
     }).catch(function (err) {
         console.warn('Something went wrong.', err);
     });

@@ -5,9 +5,10 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import logging
 from library.Scheduler import Scheduler
 from library.Database import Database
+from jobs.Poweropti import Poweropti
 from library.Sql import Sql
 from waitress import serve
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -15,7 +16,7 @@ app = Flask(__name__)
 sql = Sql()
 database = Database()
 scheduler = Scheduler(database)
-from library.Sql import Sql
+Poweropti.fetch(database)
 
 @app.route('/health')
 def health():
@@ -29,6 +30,11 @@ def home():
         description="Habel Smarthome Template."
     )
 
+@app.route('/api/zoe/battery/current.json')
+def current_zoe():
+    battery_percent = database.read(sql.generate_zoe_last_entry_query())
+    return {'battery_percent': battery_percent[0][0], 'total_mileage': battery_percent[0][1]}
+
 @app.route('/api/house/stats/temp/current.json')
 def current_temp():
     solar_production = database.read(sql.generate_solarpanel_last_entry_query())
@@ -37,14 +43,20 @@ def current_temp():
 @app.route('/api/house/power/current.json')
 def current_power():
     solar_production = database.read(sql.generate_solarpanel_last_entry_query())
-    print(solar_production)
-    return {'house_consumption': 3600, 'solar_production': solar_production[0][1]}
+    house_consumption = database.read(sql.generate_poweropti_last_entry_query())
+    return {'house_consumption': house_consumption[0][0], 'solar_production': solar_production[0][1]}
+
+@app.route('/static/<path:path>')
+def send_report(path):
+    return send_from_directory('static', path)
 
 def init_database():
     database.execute(sql.generate_solarpanel_table_stmt())
     database.execute(sql.generate_solarpanel_index_stmt())
     database.execute(sql.generate_zoe_table_stmt())
     database.execute(sql.generate_zoe_index_stmt())
+    database.execute(sql.generate_poweropti_table_stmt())
+    database.execute(sql.generate_poweropti_index_stmt())
 
 if __name__ == "__main__":
     logging.basicConfig(

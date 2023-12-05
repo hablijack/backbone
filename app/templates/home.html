@@ -33,12 +33,49 @@
                 <div class="card-header">
                     <h5 class="card-title">Außentemperatur</h5>
                     <h6 class="card-subtitle text-muted">
-                        Zeigt die aktuelle Außentemperatur an.
+                        Zeigt die aktuelle Außentemperatur an.<br/>
                     </h6>
                 </div>
                 <div class="card-body">
-                    <div class="chart chart-sm">
+                    <div class="chart chart-sm text-metric">
                         <span id="temperature-outside"></span>
+                        <span class="unit">°C</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">ZOE Ladestand</h5>
+                    <h6 class="card-subtitle text-muted">
+                        Zeigt den Ladestand der Renault-ZOE Batterie an.<br/>
+                    </h6>
+                </div>
+                <div class="card-body renault-sign-bg">
+                    <div class="chart chart-sm text-metric">
+                        <span id="zoe-battery-state"></span>
+                        <span class="unit">%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        ZOE Kilometerstand
+                    </h5>
+                    <h6 class="card-subtitle text-muted">
+                        Zeigt den Kilometerstand des Renault-ZOE an.<br/>
+                    </h6>
+                </div>
+                <div class="card-body renault-sign-bg">
+                    <div class="chart chart-sm text-metric">
+                        <span id="zoe-mileage"></span>
+                        <span class="unit">Km</span>
                     </div>
                 </div>
             </div>
