@@ -5,32 +5,6 @@
 {% endblock %}
 
 {% block js %}
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        new Chart(document.getElementById("chartjs-pie"), {
-            type: "pie",
-            data: {
-                labels: ["Netzbezug", "Balkonsolar-Produktion"],
-                datasets: [{
-                    data: [3600, 50],
-                    backgroundColor: [
-                        "#cc6600",
-                        "#339933"
-                    ],
-                    borderColor: "transparent"
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                legend: {
-                    display: true
-                }
-            }
-        });
-    });
-</script>
-
-
 <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 {% endblock %}
 
@@ -38,7 +12,7 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-3">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">Stromverbrauch/Produktion Echtzeit</h5>
@@ -53,6 +27,60 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-12 col-lg-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Außentemperatur</h5>
+                    <h6 class="card-subtitle text-muted">
+                        Zeigt die aktuelle Außentemperatur an.<br/>
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart chart-sm text-metric">
+                        <span id="temperature-outside"></span>
+                        <span class="unit">°C</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">ZOE Ladestand</h5>
+                    <h6 class="card-subtitle text-muted">
+                        Zeigt den Ladestand der Renault-ZOE Batterie an.<br/>
+                    </h6>
+                </div>
+                <div class="card-body renault-sign-bg">
+                    <div class="chart chart-sm text-metric">
+                        <span id="zoe-battery-state"></span>
+                        <span class="unit">%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        ZOE Kilometerstand
+                    </h5>
+                    <h6 class="card-subtitle text-muted">
+                        Zeigt den Kilometerstand des Renault-ZOE an.<br/>
+                    </h6>
+                </div>
+                <div class="card-body renault-sign-bg">
+                    <div class="chart chart-sm text-metric">
+                        <span id="zoe-mileage"></span>
+                        <span class="unit">Km</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 {% endblock %}

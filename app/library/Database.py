@@ -35,12 +35,14 @@ class Database():
             cur = self.conn.cursor()
             cur.execute(select_statement)
             records = cur.fetchall()
-            return records
         except Exception as error:
             print(f"Error: '{error}'")
             self.conn.rollback()
+            records = None
         finally:
             cur.close()
+            return records
+            
 
     @staticmethod
     def cleanup(database):
@@ -50,6 +52,8 @@ class Database():
             cleanup_statement = sql.generate_solarpanel_cleanup_stmt()
             database.execute(cleanup_statement)
             cleanup_statement = sql.generate_zoe_cleanup_stmt()
+            database.execute(cleanup_statement)
+            cleanup_statement = sql.generate_poweropti_cleanup_stmt()
             database.execute(cleanup_statement)
         except Exception as error:
             logger.error(f"Error: '{error}'")
