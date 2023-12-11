@@ -43,7 +43,7 @@ class Database():
             cur.close()
 
     @staticmethod
-    async def cleanup(database):
+    def cleanup(database):
         sql = Sql()
         logger = logging.getLogger("Database")
         try:
