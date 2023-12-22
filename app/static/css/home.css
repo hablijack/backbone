@@ -1,5 +1,7 @@
-#temperature-outside, #zoe-battery-state, #zoe-mileage {
-    font-size: 130px;
+#temperature-outside,
+#zoe-battery-state,
+#zoe-mileage {
+    font-size: 90px;
 }
 
 #zoe-mileage {

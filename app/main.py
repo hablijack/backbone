@@ -34,6 +34,18 @@ def current_zoe():
     battery_percent = database.read(sql.generate_zoe_last_entry_query())
     return {'battery_percent': battery_percent[0][0], 'total_mileage': battery_percent[0][1]}
 
+@app.route('/api/house/stats/temp/all.json')
+def all_temp():
+    all_solar_productions = database.read(sql.generate_solarpanel_all_entries_query())
+    temperatures = []
+    for entry in all_solar_productions:
+        temperature = {}
+        temperature['y'] = entry[0]
+        temperature['x'] = entry[1]
+        temperatures.append(temperature)
+    return {'temperatures': temperatures}
+
+
 @app.route('/api/house/stats/temp/current.json')
 def current_temp():
     solar_production = database.read(sql.generate_solarpanel_last_entry_query())

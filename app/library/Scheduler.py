@@ -20,7 +20,7 @@ class Scheduler():
         self.scheduler.start()
 
     def register_jobs(self):
-        if self.config.scheduler_active:
+        if self.config.scheduler_active():
             self.scheduler.add_job(Fritzbox.fetch, 'interval', [self.database], minutes=1)
             self.scheduler.add_job(Poweropti.fetch, 'interval', [self.database], minutes=1)
             self.scheduler.add_job(Zoe.fetch, 'interval', [self.database], minutes=10)

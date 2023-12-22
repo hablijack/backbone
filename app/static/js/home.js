@@ -1,4 +1,57 @@
 document.addEventListener("DOMContentLoaded", function () {
+    fetch('/api/house/stats/temp/all.json').then(function (response) {
+        if (response.ok) {
+            return response.json();
+        } else {
+            return Promise.reject(response);
+        }
+    }).then(function (data) {
+        new Chart(document.getElementById("power-linechart"), {
+            type: "line",
+            data: {
+                datasets: [{
+                    data: data.temperatures,
+                    fill: false,
+                    lineTension: 0,
+                    borderColor: 'rgb(75, 192, 192)',
+                }]
+            },
+            options: {
+                legend: {
+                    display: false,
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'minute',
+                            displayFormats: {
+                                'minute': 'HH:MM',
+                            }
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 10,
+                        },
+                    }],
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 15,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: "°C"
+                        }
+                    }]
+                }
+            }
+        });
+    }).catch(function (err) {
+        console.warn('Something went wrong.', err);
+    });
+
     fetch('/api/house/power/current.json').then(function (response) {
         if (response.ok) {
             return response.json();
@@ -6,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return Promise.reject(response);
         }
     }).then(function (data) {
-        new Chart(document.getElementById("chartjs-pie"), {
+        new Chart(document.getElementById("power-piechart"), {
             type: "pie",
             data: {
                 labels: ["Netzbezug (W)", "Solar-Produktion (W)"],
@@ -29,9 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }).catch(function (err) {
         console.warn('Something went wrong.', err);
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
     fetch('/api/house/stats/temp/current.json').then(function (response) {
         if (response.ok) {
             return response.json();
@@ -43,9 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }).catch(function (err) {
         console.warn('Something went wrong.', err);
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
     fetch('/api/zoe/battery/current.json').then(function (response) {
         if (response.ok) {
             return response.json();
