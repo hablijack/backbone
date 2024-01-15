@@ -57,6 +57,24 @@ def current_power():
     house_consumption = database.read(sql.generate_poweropti_last_entry_query())
     return {'house_consumption': house_consumption[0][0], 'solar_production': solar_production[0][1]}
 
+@app.route('/api/house/power/all.json')
+def all_power():
+    all_solar_data = database.read(sql.generate_solarpanel_all_entries_query())
+    all_housepower_data = database.read(sql.generate_poweropti_all_entries_query())
+    solarpanel_data = []
+    for entry in all_solar_data:
+        power = {}
+        power['y'] = entry[2]
+        power['x'] = entry[1]
+        solarpanel_data.append(power)
+    house_data = []
+    for entry in all_housepower_data:
+        power = {}
+        power['y'] = entry[1]
+        power['x'] = entry[0]
+        house_data.append(power)
+    return {'solar': solarpanel_data, 'house': house_data}
+
 @app.route('/static/<path:path>')
 def send_report(path):
     return send_from_directory('static', path)

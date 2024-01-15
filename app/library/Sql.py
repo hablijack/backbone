@@ -47,6 +47,9 @@ class Sql():
     def generate_solarpanel_all_entries_query(self):
         return 'SELECT temperature, timestamp, power FROM solarpanels WHERE DATE(timestamp) = current_date order by timestamp ASC;'
 
+    def generate_poweropti_all_entries_query(self):
+        return 'SELECT timestamp, watt FROM poweropti WHERE DATE(timestamp) = current_date order by timestamp ASC;'
+
     def generate_poweropti_last_entry_query(self):
         return 'SELECT watt FROM poweropti ORDER BY "timestamp" DESC LIMIT 1;'
 

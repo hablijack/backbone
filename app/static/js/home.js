@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('/api/house/stats/temp/all.json').then(function (response) {
+    fetch('/api/house/power/all.json').then(function (response) {
         if (response.ok) {
             return response.json();
         } else {
@@ -7,6 +7,68 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }).then(function (data) {
         new Chart(document.getElementById("power-linechart"), {
+            type: "line",
+            data: {
+                datasets: [{
+                    label: 'Solarproduktion',
+                    data: data.solar,
+                    fill: true,
+                    lineTension: 0,
+                    borderColor: 'rgb(75, 192, 192)',
+                },
+                {
+                    label: 'Hausverbrauuch',
+                    data: data.house,
+                    fill: false,
+                    lineTension: 0,
+                    borderColor: 'rgb(75, 192, 0)',
+                }]
+            },
+            options: {
+                legend: {
+                    display: true,
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'minute',
+                            displayFormats: {
+                                'minute': 'HH:MM',
+                            }
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 20,
+                        },
+                    }],
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 15,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: "W"
+                        }
+                    }]
+                }
+            }
+        });
+    }).catch(function (err) {
+        console.warn('Something went wrong.', err);
+    });
+
+
+    fetch('/api/house/stats/temp/all.json').then(function (response) {
+        if (response.ok) {
+            return response.json();
+        } else {
+            return Promise.reject(response);
+        }
+    }).then(function (data) {
+        new Chart(document.getElementById("temp-linechart"), {
             type: "line",
             data: {
                 datasets: [{
@@ -103,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }).then(function (data) {
         document.getElementById("zoe-battery-state").textContent = data.battery_percent;
-        document.getElementById("zoe-mileage").textContent = data.total_mileage;
+        document.getElementById("zoe-mileage").textContent = Math.round(data.total_mileage);
     }).catch(function (err) {
         console.warn('Something went wrong.', err);
     });
