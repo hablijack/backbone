@@ -5,7 +5,6 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import logging
 from library.Scheduler import Scheduler
 from library.Database import Database
-from jobs.Poweropti import Poweropti
 from library.Sql import Sql
 from waitress import serve
 from flask import Flask, render_template, send_from_directory

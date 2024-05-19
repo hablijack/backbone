@@ -5,7 +5,6 @@ import logging
 import aiohttp
 import asyncio
 from library.Configuration import Configuration
-from library.Configuration import Configuration
 from renault_api.renault_client import RenaultClient
 from library.Sql import Sql
 
