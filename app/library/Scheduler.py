@@ -23,7 +23,7 @@ class Scheduler():
         if self.config.scheduler_active():
             self.scheduler.add_job(Fritzbox.fetch, 'interval', [self.database], minutes=1)
             self.scheduler.add_job(Poweropti.fetch, 'interval', [self.database], minutes=1)
-            self.scheduler.add_job(Zoe.fetch, 'interval', [self.database], minutes=10)
+            self.scheduler.add_job(Zoe.fetch, 'interval', [self.database], minutes=1)
             self.scheduler.add_job(Database.cleanup, 'cron', [self.database], hour='10', minute='30')
         else: 
             pass
