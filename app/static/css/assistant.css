@@ -1,0 +1,234 @@
+/* CSS Document */
+body{
+	padding:0;
+	margin: 0;
+	color:#73d8fd;
+	width:100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: black;
+	background-image:url(/static/img/fauxBG.png);
+    vertical-align: middle;
+}
+
+@font-face {
+    font-family:'myNeogrey';
+    src:url('/static/font/NeogreyRegular.otf') format('truetype');
+}
+
+/*----------------------------------Background Animations-----------------------------------*/
+.bgAnimRing{
+	top:-230px;
+	left:-230px;
+	position:absolute;
+	width:700px;
+	height:700px;
+	z-index:-40;
+}
+
+.bgAnimRing1{
+	top:248px;
+	left:248px;
+	width:205px;
+	height:205px;
+	position:absolute;
+	z-index:-40;
+	background-image:url(/static/img/bgAnim1.png);
+	animation: rotate_right 45s linear infinite;
+}
+
+.bgAnimRing2{
+	top:75px;
+	left:75px;
+	width:550px;
+	height:550px;
+	position:absolute;
+	z-index:-40;
+	background-image:url(/static/img/bgAnim2.png);
+	animation: rotate_left 27s linear infinite;
+}
+
+.bgAnimRing3{
+	width:700px;
+	height:700px;
+	position:absolute;
+	z-index:-40;
+	background-image:url(/static/img/bgAnim3.png);
+	animation: rotate_right 35s linear infinite;
+}
+
+.sineGraph{
+	-webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+	width: 600px;
+	height: 50px;
+	position: absolute;
+	left: 0;
+	bottom: 23px;
+	z-index: 1;
+	background-image:url(/static/img/singraph.png);
+	background-repeat: repeat-x;
+	animation: loop 60s linear infinite;
+}
+@keyframes loop {
+	0% { background-position: 0 0; }
+	50% { background-position: -500px 0; }
+	100% { background-position: -900px 0; }
+  }
+/*----------------------------------Footer-----------------------------------*/
+
+footer {
+	width:100%;
+	position:fixed;
+	bottom:0;
+	left: 0;
+}
+
+.footerImg{
+	width: 100%;
+	height: auto;
+	background-image: url(/static/img/footer.png);
+	background-size: 100%;
+	z-index:0;
+	background-repeat: no-repeat;
+}
+
+.semText{
+	font-family:'myNeogrey';
+	position:absolute;
+	left:30px;
+	top:50px;
+	font-size:30px;
+}
+
+.juryText{
+	font-family:'myNeogrey';
+	position:absolute;
+  right: 100px;
+  bottom: 8px;
+	font-size:40px;
+  font-weight: bold; 
+}
+
+.headText{
+	font-family:'myNeogrey';
+	position:absolute;
+	width:400px;
+	left:975px;
+	top:0px;
+	font-size:36px;
+}
+
+.infoText{
+	font-family:'myNeogrey';
+	top:5px;
+	font-size:25px;
+	float: right;
+	margin-right: 20px;
+  	font-weight: bold;
+}
+
+#messageContainer {
+	font-size: 150px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 435px;
+	display: none;
+}
+
+#videoContainer {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 30%;
+}
+
+.recognitionVisualization{
+	display: none;
+}
+
+.weatherTable {
+    border-collapse: collapse;
+    font-size: 30px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container{
+	padding: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-family:'myNeogrey';
+    position: absolute;
+    width: 800px;
+	height: 400px;
+    right: 0px;
+    top: 0px;
+	overflow: hidden;
+	background-color: transparent;
+	z-index:0;
+	background-image: url(/static/img/imageGalBorder.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+@-webkit-keyframes rotate_right /* Safari and Chrome */ {
+	from {
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	to {
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+  @keyframes rotate_right {
+	from {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	to {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+
+
+
+@-webkit-keyframes rotate_left/* Safari and Chrome */ {
+	from {
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+	to {
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+  }
+  @keyframes rotate_left {
+	from {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+	to {
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+  }

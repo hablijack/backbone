@@ -28,6 +28,14 @@ def home():
         description="Habel Smarthome Template."
     )
 
+@app.route('/assistant')
+def assistant():
+    return render_template(
+        'assistant.html',
+        title="Smarthome Assistant",
+        description="Habel Smarthome Assitsant."
+    )
+
 @app.route('/api/zoe/battery/current.json')
 def current_zoe():
     battery_percent = database.read(sql.generate_zoe_last_entry_query())
