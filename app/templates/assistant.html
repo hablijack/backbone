@@ -1,60 +1,65 @@
 <!doctype html>  
 <html lang="de">  
-	<head>
-		<meta charset="utf-8">
-		<title>Homeassistant</title>
-		<link rel="stylesheet" href="/static/css/assistant.css" type="text/css" />
-	</head>
-	<body>
+    <head>
+        <meta charset="utf-8">
+        <title>Homeassistant</title>
+        <link rel="stylesheet" href="/static/css/assistant.css" type="text/css" />
+    </head>
+    <body>
 
-		<div class="bgAnimRing">
-			<div class="bgAnimRing3"></div>
-			<div class="bgAnimRing2"></div>
-			<div class="bgAnimRing1"></div>
-		</div>
-
-		<div class="infoText">
-			<span class="clock"></span>
-		</div>
-
-		<div id="container">
-			<div id="weather">
-				<span id="day0">
-					Sonnig
-					<img src="/static/img/weather_icons/clear-day.png" style="height: 80px;"/>
-				</span>
-				<span id="day1">
-					Windig
-					<img src="/static/img/weather_icons/wind.png" style="height: 80px;"/>
-				</span>
-				<span id="day2">
-					Regen
-					<img src="/static/img/weather_icons/rain.png" style="height: 80px;"/>
-				</span>
-				<span id="day3">
-					Schnee
-					<img src="/static/img/weather_icons/snow.png" style="height: 80px;"/>
-				</span>
-			</div>
+        <div class="bgAnimRing">
+            <div class="bgAnimRing3"></div>
+            <div class="bgAnimRing2"></div>
+            <div class="bgAnimRing1"></div>
         </div>
 
-		<footer>
-			<img src="/static/img/footer.png" style="width: 100%; max-height: 75px;"/>
-			<div class="sineGraph"></div>
-			<div class="juryText">
-				<span class="juryTextValue">Home Assistant</div>
-			</div>
-		</footer>
+        <div class="header-text">
+            <span class="clock"></span>
+        </div>
 
-		<!-- EXTERNAL JS MODULES -->
-		<script src="/static/js/ext/jquery-3.5.1.min.js"></script>
-		<script src="/static/js/ext/jquery.transit.min.js"></script>
-		<script src="/static/js/ext/moment-with-locales.min.js"></script>
-		<script src="/static/js/ext/typed.min.js"></script>
+        <div class="container container-small-square">
+            Test123
+        </div>
 
-		<!-- INTERNAL JS MODULES -->
-		<script src="/static/js/assistant.js"></script>
+        <div class="container container-medium-square">
+            Test123
+        </div>
 
-	</body>
+        <div class="container container-medium-rect">
+            Test12345
+        </div>
+
+        <div class="container container-long-1">
+            Test12345
+        </div>
+
+        <div class="container container-long-2">
+            Test12345
+        </div>
+
+        <div class="container container-circle">
+			<div id="zoe-fuel-chart"></div>
+			<img class="zoe-logo" src="/static/img/zoe.png"/>
+		</div>
+
+        <footer>
+            <img src="/static/img/footer_low.png" style="width: 100%; max-height: 75px;"/>
+            <div class="sineGraph"></div>
+            <div class="juryText">
+                <span class="juryTextValue">Home Assistant</div>
+            </div>
+        </footer>
+
+        <!-- EXTERNAL JS MODULES -->
+        <script src="/static/js/ext/jquery-3.5.1.min.js"></script>
+        <script src="/static/js/ext/jquery.transit.min.js"></script>
+        <script src="/static/js/ext/moment-with-locales.min.js"></script>
+		<script src="/static/js/ext/apexcharts.min.js"></script>
+        <script src="/static/js/ext/typed.min.js"></script>
+
+        <!-- INTERNAL JS MODULES -->
+        <script src="/static/js/assistant.js"></script>
+
+    </body>
 </html>  
 
