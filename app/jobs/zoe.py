@@ -6,7 +6,8 @@ import aiohttp
 import asyncio
 from library.Configuration import Configuration
 from renault_api.renault_client import RenaultClient
-from library.Sql import Sql
+from library.sql import Sql
+
 
 class Zoe():
 
@@ -25,6 +26,7 @@ class Zoe():
                 cockpit_data = await vehicle.get_cockpit()
                 battery_data = await vehicle.get_battery_status()
                 insert = sql.generate_zoe_insert_stmt(battery_data.batteryLevel, cockpit_data.totalMileage)
+                logger.info(insert)
                 database.execute(insert)            
         except Exception as e:
             logger.error("Error: %s. Cannot get Zoe data." % e)

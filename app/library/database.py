@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import psycopg2
-from library.Sql import Sql
+from library.sql import Sql
 import logging
 from library.Configuration import Configuration
 

@@ -5,7 +5,8 @@ import logging
 from fritzconnection import FritzConnection
 from fritzconnection.lib.fritzhomeauto import FritzHomeAutomation
 from library.Configuration import Configuration
-from library.Sql import Sql
+from library.sql import Sql
+
 
 class Fritzbox():
 

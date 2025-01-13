@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from library.Sql import Sql
+from library.sql import Sql
 from http.client import HTTPSConnection
 from base64 import b64encode
 from library.Configuration import Configuration
 import json
+
 
 class Poweropti():
 
@@ -26,6 +27,3 @@ class Poweropti():
             database.execute(insert_stmt)
         except Exception as e:
             logger.error("Error: %s. Cannot get Poweropti data." % e)
-
-
-           

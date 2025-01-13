@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from apscheduler.schedulers.background import BackgroundScheduler
-from jobs.Fritzbox import Fritzbox
-from jobs.Poweropti import Poweropti
-from jobs.Zoe import Zoe
-from library.Database import Database
+from jobs.fritzbox import Fritzbox
+from jobs.poweropti import Poweropti
+from jobs.zoe import Zoe
+from library.database import Database
 from library.Configuration import Configuration
+
 
 class Scheduler():
 
