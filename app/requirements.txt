@@ -3,3 +3,4 @@ fritzconnection
 apscheduler
 python-dotenv
 renault-api
+psycopg2-binary
