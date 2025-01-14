@@ -4,7 +4,7 @@ RUN apk add --update python3-dev gcc libc-dev libffi-dev
 
 ADD app /app
 
-RUN mkdir /app/cache
+RUN mkdir /app/log
 
 RUN pip install -r /app/requirements.txt
 
