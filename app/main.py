@@ -23,7 +23,7 @@ if __name__ in '__main__':
         format="%(asctime)s - %(levelname)s [%(name)s] %(message)s",
         datefmt='%d.%m.%Y %H:%M:%S',
         handlers=[
-            logging.FileHandler("log/debug.log"),
+            logging.FileHandler("debug.log"),
             logging.StreamHandler()
         ]
     )
