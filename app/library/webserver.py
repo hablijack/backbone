@@ -23,8 +23,8 @@ class Webserver():
 
     def serve(self):
         settings = dict(
-            template_path='templates',
-            static_path='static',
+            template_path=rel('templates'),
+            static_path=rel('static'),
             debug=True
         )
         app = Application([
