@@ -17,8 +17,8 @@ body{
 
 /*----------------------------------Background Animations-----------------------------------*/
 .bgAnimRing{
-    top:-230px;
-    left:-230px;
+    top:-332px;
+    left:-332px;
     position:absolute;
     width:700px;
     height:700px;
@@ -58,13 +58,13 @@ body{
 
 .sineGraph{
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    width: 600px;
-    height: 50px;
+    width: 420px;
+    height: 35px;
     position: absolute;
     left: 0;
     bottom: 23px;
     z-index: 1;
-    background-image:url(/static/img/singraph.png);
+    background-image:url(/static/img/singraph_2.png);
     background-repeat: repeat-x;
     animation: loop 60s linear infinite;
 }
@@ -93,9 +93,9 @@ footer {
 .juryText{
     font-family:'myNeogrey';
     position:absolute;
-  	right: 100px;
+  	right: 22px;
   	bottom: 8px;
-    font-size:40px;
+    font-size:38px;
   	font-weight: bold; 
 }
 
@@ -194,20 +194,19 @@ footer {
     background-image: url(/static/img/hud_long_2.png);
 }
 
-.container-circle {
-    width: 250px;
-    height: 250px;
-    left: 300px;
-    top: 400px;
+.container-circle-md {
+    width: 150px;
+    height: 150px;
     background-image: url(/static/img/ring.png);
 }
 
-.zoe-logo {
-    position: absolute;
-    top: 77px;
-    left: 101px;
-    width: 46px;
-    height: 60px;
+.zoe-chart {
+    right: 70px;
+    top: 50px;
+}
+.house-power-chart {
+    right: 20px;
+    top: 220px;
 }
 
 @-webkit-keyframes rotate_right /* Safari and Chrome */ {
